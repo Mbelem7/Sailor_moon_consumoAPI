@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal web que consume la API pública Jikan para mostrar a las Sailor Scouts.">
+    <title>Sailor Scouts | Consumo de API</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/css/styles.css">
+</head>
+<body>
+
+    <!-- ===== MENU ===== -->
+    <nav aria-label="Menú principal">
+        <a href="#inicio" class="logo">🌙 Sailor Scouts</a>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#personajes">Personajes</a></li>
+            <li><a href="#laboratorio">Laboratorio API</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== INICIO: datos del anime ===== -->
+    <header id="inicio">
+        <div class="contenedor hero">
+            <div class="hero-texto">
+                <p class="etiqueta">✨ En el nombre de la Luna ✨</p>
+                <h1 id="anime-titulo">Sailor Moon</h1>
+                <p id="anime-japones" class="japones"></p>
+                <p id="anime-sinopsis" class="sinopsis">Cargando información del anime…</p>
+
+                <ul class="datos" id="anime-datos">
+                    <li><span>⭐ Puntuación</span><strong>—</strong></li>
+                    <li><span>📺 Episodios</span><strong>—</strong></li>
+                    <li><span>📅 Año</span><strong>—</strong></li>
+                    <li><span>🎬 Estudio</span><strong>—</strong></li>
+                </ul>
+            </div>
+            <div class="hero-imagen">
+                <img id="anime-portada" src="" alt="Portada del anime Sailor Moon" hidden>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== PERSONAJES  ===== -->
+        <section id="personajes">
+            <div class="contenedor">
+                <h2>Personajes</h2>
+                <p class="subtitulo">Haz clic en un personaje para ver su información completa.</p>
+
+                <div class="controles">
+                    <input type="search" id="buscador" placeholder="🔍 Buscar personaje… (ej. Usagi, Ami, Luna)" aria-label="Buscar personaje">
+                    <div class="filtros" role="group" aria-label="Filtrar por rol">
+                        <button type="button" class="filtro activo" data-rol="todos">Todos</button>
+                        <button type="button" class="filtro" data-rol="Main">Principales</button>
+                        <button type="button" class="filtro" data-rol="Supporting">Secundarios</button>
+                    </div>
+                </div>
+
+                <p id="estado-personajes" class="estado">🌙 Cargando personajes…</p>
+                <ul id="lista-personajes" class="grid-personajes"></ul>
+            </div>
+        </section>
+
+        <!-- ===== LABORATORIO: detalles de cada peticion ===== -->
+        <section id="laboratorio">
+            <div class="contenedor">
+                <h2>Laboratorio API</h2>
+                <p class="subtitulo">Así responde la API de AniList a cada petición que hace la página.</p>
+
+                <div class="panel">
+                    <div class="metricas">
+                        <div><span>Estado HTTP</span><strong id="lab-estado">—</strong></div>
+                        <div><span>Tiempo de respuesta</span><strong id="lab-tiempo">—</strong></div>
+                        <div><span>Tipo de contenido</span><strong id="lab-tipo">—</strong></div>
+                        <div><span>Método</span><strong id="lab-metodo">—</strong></div>
+                    </div>
+                    <p class="url">🔗 <code id="lab-url">Aún no se ha hecho ninguna petición</code></p>
+
+                    <h3>Respuesta JSON</h3>
+                    <pre id="lab-json">{ }</pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== DETALLE DEL PERSONAJE ===== -->
+    <dialog id="modal" aria-labelledby="modal-nombre">
+        <button type="button" class="cerrar" id="cerrar-modal" aria-label="Cerrar">✕</button>
+        <div id="modal-contenido">
+            <p class="estado">🌙 Cargando…</p>
+        </div>
+    </dialog>
+
+    <footer>
+        <h4>Diseño de sistemas en Internet · Guía Frontend: Consumo de API</h4>
+  <p>Datos obtenidos de <a href="https://anilist.co/" target="_blank" rel="noopener">AniList API</a>, API pública de anime y manga.</p>
+        <h6>&copy;2026 María Belén Guevara</h6>
+    </footer>
+
+   <script src="../styles/js/app.js"></script>
+</body>
+</html>
